@@ -1,30 +1,50 @@
-NAME = philo
+# ==================== #
+#    Color Settings    #
+# ==================== #
+BOLD    = \033[1m
+RED     = \033[31m
+GREEN   = \033[32m
+YELLOW  = \033[33m
+BLUE    = \033[34m
+MAGENTA = \033[35m
+CYAN    = \033[36m
+RESET   = \033[0m
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread
+# Compiler & Flags
+CC      = cc
+CFLAGS  = -Wall -Wextra -Werror -pthread -Iincludes
 
-SRCDIR = .
-OBJDIR = obj
+# Directories
+SRCDIR 	= src
+OBJDIR  = obj
 
+# Sources & Objects
 SOURCES = actions.c clean.c init.c main.c monitor.c simulation.c utils.c
+SRCS	= $(addprefix $(SRCDIR)/, $(SOURCES))
+OBJS    = $(addprefix $(OBJDIR)/, $(SOURCES:.c=.o))
 
-SRCS = $(addprefix $(SRCDIR)/, $(SOURCES))
-OBJS = $(addprefix $(OBJDIR)/, $(SOURCES:.c=.o))
+# Output Binary
+NAME    = philo
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(CYAN)Linking objects...$(RESET)"
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)Build complete: $(NAME)$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(YELLOW)Compiling $<...$(RESET)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR)
+	@echo "$(MAGENTA)Cleaning object files...$(RESET)"
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "$(MAGENTA)Removing binary...$(RESET)"
+	@rm -f $(NAME)
 
 re: fclean all
 
