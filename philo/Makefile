@@ -39,11 +39,11 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "$(MAGENTA)Cleaning object files...$(RESET)"
+	@echo "$(RED)Cleaning object files...$(RESET)"
 	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@echo "$(MAGENTA)Removing binary...$(RESET)"
+	@echo "$(RED)Removing binary...$(RESET)"
 	@rm -f $(NAME)
 
 re: fclean all
