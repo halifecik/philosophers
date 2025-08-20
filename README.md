@@ -49,7 +49,7 @@ make
 ./philo [Amount of Philos] [Time Before Death] [Time to Eat] [Time to Sleep] ([Amount of Meals])
 ```
 
-Example:<span style="font-weight:300; color:gray">No Die</span>
+Example: <sub>No Die</sub>
 ```bash
 ./philo 5 800 200 200 50
 ```
