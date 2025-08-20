@@ -49,10 +49,13 @@ make
 ./philo [Amount of Philos] [Time Before Death] [Time to Eat] [Time to Sleep] ([Amount of Meals])
 ```
 
-Example: <sub>No Die</sub>
+Example:
 ```bash
 ./philo 5 800 200 200 50
 ```
+<sub>No Die</sub>
+
+---
 
 ## 🔀 Flowchart
 <img width="1290" height="2560" alt="image" src="https://github.com/user-attachments/assets/04608fa4-62e1-484d-8e7b-31bef9c1cdcc" />
