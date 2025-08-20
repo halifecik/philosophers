@@ -17,7 +17,7 @@ It’s a deep dive into multithreading, synchronization, and precise time handli
 
 - 🧵 **Threaded philosophers** using `pthread_create`
 - 🍴 **Mutex-protected forks** to avoid race conditions
-- ⏱️ **Precise action timing** (`time_to_die`, `time_to_eat`, `time_to_sleep`)
+- ⏱️ **Precise action timing** (`time_to_die`, `time_to_eat`, `time_to_sleep`) in ms
 - ⚰️ **Death detection** if a philosopher misses meals
 - ✅ Optional limit: stop after each philosopher eats `N` times
 - 🎨 **Colored terminal messages** for better readability
