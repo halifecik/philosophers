@@ -1,62 +1,60 @@
-# 🍝 Philosophers — Dining Philosophers Problem
+# 🍝 Philosophers — Dining Philosophers Simulator
 
-> A multithreaded solution to the classic dining philosophers problem.  
-> Written in C as part of the 42 curriculum, this project demonstrates safe concurrency, synchronization, and deadlock prevention.
-
----
-
-## 📜 Project Overview
-
-**Philosophers** simulates a group of philosophers sitting around a table, alternating between eating, thinking, and sleeping.  
-Forks are shared resources, and philosophers must pick up two forks (mutexes) to eat.  
-The challenge: prevent **deadlocks** and ensure no philosopher starves while handling **precise timing**.
-
-This implementation is modular, with clear separation of concerns:
-- Argument parsing and validation
-- Initialization of data structures and mutexes
-- Philosopher lifecycle (threads)
-- Monitoring for death/starvation
-- Resource cleanup
+> A multithreaded concurrency project simulating the dining philosophers problem.  
+> Built in C with `pthread`, focusing on synchronization, timing, and deadlock prevention.
 
 ---
 
-## ⚙️ Features
+### 📜 Project Overview
+
+**Philosophers** is a CLI program written in C that simulates philosophers sitting at a table, alternating between eating, thinking, and sleeping.  
+Each philosopher needs two forks (mutexes) to eat, and the program ensures **no deadlocks** and **fair access** to resources.  
+It’s a deep dive into multithreading, synchronization, and precise time handling.
+
+---
+
+### ⚙️ Features
 
 - 🧵 **Threaded philosophers** using `pthread_create`
-- 🍴 **Fork management** with mutexes
+- 🍴 **Mutex-protected forks** to avoid race conditions
 - ⏱️ **Precise action timing** (`time_to_die`, `time_to_eat`, `time_to_sleep`)
-- ⚰️ **Death detection** if a philosopher doesn’t eat within `time_to_die`
-- ✅ Optional argument: `number_of_times_each_philosopher_must_eat`
-- 🎨 **Colored terminal messages** for better visualization
-- 🧼 **Full cleanup** of mutexes and memory after simulation
+- ⚰️ **Death detection** if a philosopher misses meals
+- ✅ Optional limit: stop after each philosopher eats `N` times
+- 🎨 **Colored terminal messages** for better readability
+- 🧼 **Graceful cleanup** of memory and mutexes
 
 ---
 
 ## 🛠️ Technologies Used
 
 - Language: **C**
-- Libraries: `pthread`, `unistd`, `stdio`, `stdlib`, `sys/time`
-- Synchronization: **POSIX mutexes**
-- Time tracking: `gettimeofday`
+- Libraries: `pthread`, `unistd`, `stdlib`, `sys/time`
+- Synchronization: POSIX **mutexes**
+- Timing: `gettimeofday`
 
 ---
 
-## 📦 Build & Run Instructions
+### 📦 Build & Run Instructions
 
-### 🧰 Build
+#### 🧰 Requirements
+- GCC compiler
+- POSIX Threads (`pthread`)
+
+### 🔨 Build
 ```bash
 make
 ```
-
-Run
+### 🚀 Run
 ```bash
-./philo [Amoun of Philos] [Time Before Death] [Time to Eat] [Time to Sleep] ([Amount of Meals])
+./philo [Amount of Philos] [Time Before Death] [Time to Eat] [Time to Sleep] ([Amount of Meals])
 ```
-Example >No-Die
+
+Example <sub>No Die</sub>:
 ```bash
-./philo 5 800 200 200 [Optional]
+./philo 5 800 200 200 50
 ```
 
 ## 🔀 Flowchart
 <img width="1290" height="2560" alt="image" src="https://github.com/user-attachments/assets/04608fa4-62e1-484d-8e7b-31bef9c1cdcc" />
+
 > Feel free to drop a star! ⭐️
